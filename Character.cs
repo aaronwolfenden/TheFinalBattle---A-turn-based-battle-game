@@ -5,6 +5,10 @@
     {
         public abstract string Name { get; }
         // Logic to take a turn
-        public void TakeTurn() => Console.WriteLine($"{Name} did NOTHING");
+        public IAction ChooseAction(Game game, Character character)
+        {
+            Thread.Sleep(500);
+            return new SkipAction();
+        }
     }
 }

@@ -4,5 +4,10 @@
     public class Party
     {
         public List<Character> Characters { get; } = new List<Character>();
+        public IPlayer Player { get; }
+        public Party(IPlayer player)
+        {
+            Player = player;
+        }
     }
 }

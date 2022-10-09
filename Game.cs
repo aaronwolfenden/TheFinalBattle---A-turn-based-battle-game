@@ -16,9 +16,10 @@
         {
             while (true)
             {
+
                 foreach(Character hero in Heroes.Characters)
                 {
-                    hero.TakeTurn();
+                    hero.ChooseAction(this, hero).Execute(this, hero);
                     Console.WriteLine($"It is {hero.Name}'s turn...");
                     Thread.Sleep(500);
                     Console.WriteLine();
@@ -26,7 +27,7 @@
                 }
                 foreach (Character monster in Monsters.Characters)
                 {
-                    monster.TakeTurn();
+                    monster.ChooseAction(this, monster).Execute(this, monster);
                     Console.WriteLine($"It is {monster.Name}'s turn...");
                     Thread.Sleep(500);
                     Console.WriteLine();
