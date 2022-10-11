@@ -22,6 +22,10 @@ namespace TheFinalBattle
         public void Execute(Game game, Character character)
         {
             Console.WriteLine($"{character.Name} used {_attack.Name} on {_target.Name}");
+            AttackData attackdata = _attack.Create();
+            _target.CurrentHealth -= attackdata.Damage;
+            Console.WriteLine($"{_attack.Name} dealt {attackdata.Damage} damage to {_target.Name}");
+            Console.WriteLine($"{_target.Name} is now at {_target.CurrentHealth}/{_target.MaximumHealth} HP");
         }
 
     }

@@ -13,12 +13,13 @@ namespace TheFinalBattle
         public override string Name { get;}
         // The attack the character uses
         public override IAttack Attack => new Punch();
-        
 
-        public TrueProgrammer(string name)
+        public TrueProgrammer(string name) : base(25)
         {
             Name = name;
+            
         }
+
 
     }
 }

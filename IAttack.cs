@@ -10,5 +10,10 @@ namespace TheFinalBattle
     public interface IAttack
     {
         public string Name { get; }
+        // An attack data record is required to store the information of each which implements the interface
+        AttackData Create();
     }
+
+    // Record to store any information about an attack (Damage, hit chance, damage type etc.)
+    public record AttackData(int Damage);
 }
