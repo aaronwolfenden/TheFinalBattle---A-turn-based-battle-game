@@ -25,6 +25,7 @@
                     Heroes.Player.ChooseAction(this, hero).Execute(this, hero);
                     Thread.Sleep(500);
                     Console.WriteLine();
+                    if (IsOver()) break;
 
                 }
                 foreach (Character monster in Monsters.Characters)
@@ -33,6 +34,7 @@
                     Monsters.Player.ChooseAction(this, monster).Execute(this, monster);
                     Thread.Sleep(500);
                     Console.WriteLine();
+                    if (IsOver()) break;
                 }
                 if (IsOver()) break;
             }
@@ -42,9 +44,9 @@
         public void DisplayResult()
         {
             if (Heroes.Characters.Count == 0)
-                Console.WriteLine("The heroes have lost and the Uncoded One's forces have prevailed!");
+                Console.WriteLine("The heroes have lost the battle! The Uncoded One's forces have prevailed!");
             else if (Monsters.Characters.Count == 0)
-                Console.WriteLine("The heroes have won! The Uncoded One was defeated!");
+                Console.WriteLine("The heroes have won the battle, but more lie ahead!");
         }
 
         // Method to check if the game is over

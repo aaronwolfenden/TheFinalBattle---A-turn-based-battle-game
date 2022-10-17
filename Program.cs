@@ -5,12 +5,46 @@ Party heroes = new Party(new ComputerPlayer());
 Console.Write("What is the name of your character? ");
 heroes.Characters.Add(new TrueProgrammer(Console.ReadLine().ToUpper()));
 
-// Create a monsters party and add a skeleton to the characters list
-Party monsters = new Party(new ComputerPlayer());
-monsters.Characters.Add(new Skeleton());
+// Create a list of monster parties and generate them using methods
+List<Party> monsterParties = new List<Party> { CreateMonsterPartyOne(new ComputerPlayer()), CreateMonsterPartyTwo(new ComputerPlayer()), CreateMonsterPartyThree(new ComputerPlayer())};
 
-// Create a game instance
-Game game = new Game(heroes, monsters);
+// Create a game instance for each battle and run the game
+for (int i = 0; i < monsterParties.Count; i++)
+{
+    Party monsters = monsterParties[i];
+    Game game = new Game(heroes, monsters);
+    game.Run();
+    if (heroes.Characters.Count == 0)
+    {
+        Console.WriteLine("As the last hero falls, a darkness sweeps over the land. The Uncoded One is victorious.");
+        break;
+    }
+}
 
-// Run the game
-game.Run();
+
+Party CreateMonsterPartyOne(IPlayer player)
+{
+    Party monsters = new Party(player);
+    monsters.Characters.Add(new Skeleton());
+    return monsters;
+}
+
+Party CreateMonsterPartyTwo(IPlayer player)
+{
+    Party monsters = new Party(player);
+    monsters.Characters.Add(new Skeleton());
+    monsters.Characters.Add(new Skeleton());
+    return monsters;
+}
+
+Party CreateMonsterPartyThree(IPlayer player)
+{
+    Party monsters = new Party(player);
+    monsters.Characters.Add(new Skeleton());
+    monsters.Characters.Add(new Skeleton());
+    monsters.Characters.Add(new Skeleton());
+    monsters.Characters.Add(new Skeleton());
+    monsters.Characters.Add(new Skeleton());
+    monsters.Characters.Add(new Skeleton());
+    return monsters;
+}
