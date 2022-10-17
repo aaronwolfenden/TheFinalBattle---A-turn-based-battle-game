@@ -16,7 +16,7 @@
         // The main game loop
         public void Run()
         {
-            while (true)
+            while (!IsOver())
             {
 
                 foreach(Character hero in Heroes.Characters)
@@ -33,10 +33,22 @@
                     Monsters.Player.ChooseAction(this, monster).Execute(this, monster);
                     Thread.Sleep(500);
                     Console.WriteLine();
-
                 }
+                if (IsOver()) break;
             }
+            DisplayResult();
         }
+
+        public void DisplayResult()
+        {
+            if (Heroes.Characters.Count == 0)
+                Console.WriteLine("The heroes have lost and the Uncoded One's forces have prevailed!");
+            else if (Monsters.Characters.Count == 0)
+                Console.WriteLine("The heroes have won! The Uncoded One was defeated!");
+        }
+
+        // Method to check if the game is over
+        public bool IsOver() => Heroes.Characters.Count == 0 || Monsters.Characters.Count == 0 ? true : false;
         // Methods to check which party a character belongs to
         public Party GetPartyOf(Character character) => Heroes.Characters.Contains(character) ? Heroes : Monsters;
         public Party GetEnemyPartyOf(Character character) => Heroes.Characters.Contains(character) ? Monsters : Heroes;

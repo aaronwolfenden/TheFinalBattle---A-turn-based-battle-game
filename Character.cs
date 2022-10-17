@@ -18,6 +18,8 @@
             get => _currentHealth; 
             set => _currentHealth = Math.Clamp(value, 0, MaximumHealth); 
         }
+        // Used to determine whether a character is alive or if their health has reached 0
+        public bool IsAlive => CurrentHealth > 0 ? true : false;
 
         public Character(int maximumHealth)
         {
