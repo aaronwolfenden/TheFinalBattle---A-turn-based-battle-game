@@ -46,7 +46,8 @@
             if (Heroes.Characters.Count == 0)
                 Console.WriteLine("The heroes have lost the battle! The Uncoded One's forces have prevailed!");
             else if (Monsters.Characters.Count == 0)
-                Console.WriteLine("The heroes have won the battle, but more lie ahead!");
+                Console.WriteLine("The heroes have won the battle!");
+            Console.WriteLine();
         }
 
         // Method to check if the game is over

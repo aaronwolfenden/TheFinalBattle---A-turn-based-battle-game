@@ -6,7 +6,7 @@ Console.Write("What is the name of your character? ");
 heroes.Characters.Add(new TrueProgrammer(Console.ReadLine().ToUpper()));
 
 // Create a list of monster parties and generate them using methods
-List<Party> monsterParties = new List<Party> { CreateMonsterPartyOne(new ComputerPlayer()), CreateMonsterPartyTwo(new ComputerPlayer()), CreateMonsterPartyThree(new ComputerPlayer())};
+List<Party> monsterParties = new List<Party> { CreateMonsterPartyOne(new ComputerPlayer()), CreateMonsterPartyTwo(new ComputerPlayer()), CreateUncodedOne(new ComputerPlayer())};
 
 // Create a game instance for each battle and run the game
 for (int i = 0; i < monsterParties.Count; i++)
@@ -37,14 +37,9 @@ Party CreateMonsterPartyTwo(IPlayer player)
     return monsters;
 }
 
-Party CreateMonsterPartyThree(IPlayer player)
+Party CreateUncodedOne(IPlayer player)
 {
     Party monsters = new Party(player);
-    monsters.Characters.Add(new Skeleton());
-    monsters.Characters.Add(new Skeleton());
-    monsters.Characters.Add(new Skeleton());
-    monsters.Characters.Add(new Skeleton());
-    monsters.Characters.Add(new Skeleton());
-    monsters.Characters.Add(new Skeleton());
+    monsters.Characters.Add(new TheUncodedOne());
     return monsters;
 }
