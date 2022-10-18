@@ -1,7 +1,7 @@
 ﻿using TheFinalBattle;
 
 // Create a heroes party and add a skeleton to the characters list
-Party heroes = new Party(new ComputerPlayer());
+Party heroes = new Party(new HumanPlayer());
 Console.Write("What is the name of your character? ");
 heroes.Characters.Add(new TrueProgrammer(Console.ReadLine().ToUpper()));
 
