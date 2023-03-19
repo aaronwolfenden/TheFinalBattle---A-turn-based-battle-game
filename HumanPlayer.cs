@@ -37,6 +37,7 @@ namespace TheFinalBattle
             }
             Console.Write("Choose a target: ");
             int target = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("");
 
             return target;
         }
